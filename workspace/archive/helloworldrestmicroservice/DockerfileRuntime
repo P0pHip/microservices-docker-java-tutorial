@@ -1,0 +1,7 @@
+# Run env
+FROM openjdk:11-jre-slim
+ADD ["/target/classes", "/work/target/classes"]
+ADD ["/target/dependency/*.jar", "/work/target/dependency"]
+
+EXPOSE 8080
+ENTRYPOINT ["java", "-cp", "classes:dependency/*", "com.kumuluz.ee.EeApplication"]
